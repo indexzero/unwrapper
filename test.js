@@ -34,7 +34,7 @@ describe('unwrapper', function () {
     unwrapper(undefined, [{ hi: true }]);
   });
 
-  it('returns an Array if the first element satisfies the predicate', function () {
+  it("returns an Array if it doesn't satisfy the predicate", function () {
     var unwrapper = unwrap(assumeArray, function (obj) {
       return !obj.hi;
     });
@@ -42,12 +42,12 @@ describe('unwrapper', function () {
     unwrapper(undefined, [{ hi: true }]);
   });
 
-  it("returns the first element if it doesn't satisfy the predicate", function () {
+  it('returns the first element if the first element satisfies the predicate', function () {
     var unwrapper = unwrap(assumeObject, function (obj) {
       return !obj.hi;
     });
 
-    unwrapper(undefined, [{ bye: true }]);
+    unwrapper(undefined, [{ hi: true }]);
   });
 
 });
